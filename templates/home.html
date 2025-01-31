@@ -20,22 +20,14 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             border-top: 5px solid #4facfe;
         }
-        h1 {
+        h1, h2, h3 {
             text-align: center;
-            color: #004aad;
             font-weight: bold;
         }
-        legend {
-            color: #00bcd4;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        label {
-            font-weight: bold;
-            color: #333333;
-        }
+        h1 { color: #004aad; }
+        h2 { color: #28a745; }
+        h3 { color: #ff9800; }
+        label { font-weight: bold; color: #333333; }
         .btn-primary {
             background-color: #004aad;
             border: none;
@@ -43,35 +35,19 @@
             width: 100%;
             transition: 0.3s;
         }
-        .btn-primary:hover {
-            background-color: #003080;
-        }
-        h2 {
-            margin-top: 20px;
-            text-align: center;
-            color: #28a745;
-            font-weight: bold;
-        }
-        h3 {
-            text-align: center;
-            color: #ff9800;
-            font-weight: bold;
-        }
+        .btn-primary:hover { background-color: #003080; }
         .form-control:focus {
             border-color: #4facfe;
             box-shadow: 0 0 8px rgba(79, 172, 254, 0.5);
-        }
-        option.placeholder {
-            color: #999999;
         }
     </style>
 </head>
 <body>
     <div class="login">
         <h1>Student Exam Performance Indicator</h1>
-        <form action="{{ url_for('predict_datapoint')}}" method="post">
-            <legend>Student Exam Performance Prediction</legend>
-            
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <legend>Predict Writing Score</legend>
+
             <!-- Gender -->
             <div class="mb-3">
                 <label for="gender" class="form-label">Gender</label>
@@ -129,33 +105,27 @@
                 </select>
             </div>
 
-            <!-- Writing Score -->
+            <!-- Math Score -->
             <div class="mb-3">
-                <label for="writing_score" class="form-label">Writing Score (out of 100)</label>
-                <input type="number" class="form-control" id="writing_score" name="writing_score" placeholder="Enter your Writing Score" min="0" max="100" required>
+                <label for="math_score" class="form-label">Math Score (out of 100)</label>
+                <input type="number" class="form-control" id="math_score" name="math_score" placeholder="Enter Math Score" min="0" max="100" required>
             </div>
 
             <!-- Reading Score -->
             <div class="mb-3">
                 <label for="reading_score" class="form-label">Reading Score (out of 100)</label>
-                <input type="number" class="form-control" id="reading_score" name="reading_score" placeholder="Enter your Reading Score" min="0" max="100" required>
-            </div>
-
-            <!-- Math Score -->
-            <div class="mb-3">
-                <label for="math_score" class="form-label">Math Score (out of 100)</label>
-                <input type="number" class="form-control" id="math_score" name="math_score" placeholder="Enter your Math Score" min="0" max="100" required>
+                <input type="number" class="form-control" id="reading_score" name="reading_score" placeholder="Enter Reading Score" min="0" max="100" required>
             </div>
 
             <!-- Submit Button -->
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Predict Math score and Calculate Average</button>
+                <button type="submit" class="btn btn-primary">Predict Writing Score and Calculate Average</button>
             </div>
         </form>
-        
+
         <!-- Prediction Result -->
-        <h2>Math score prediction: {{ results }}</h2>
-        <h3>Average score of student: {{ average_score }}</h3>
+        <h2>Predicted Writing Score: {{ predicted_writing_score }}</h2>
+        <h3>Average Score of Student: {{ average_score }}</h3>
     </div>
 
     <!-- Bootstrap JS -->

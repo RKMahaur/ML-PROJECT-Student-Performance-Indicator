@@ -113,7 +113,7 @@ class ModelTrainer:
                                               X_test=X_test,
                                               Y_test=Y_test,
                                               models=models,
-                                              param=params)
+                                              params=params)
             
             ## To get best model score from dict
             best_model_score = max(sorted(model_report.values()))
@@ -135,7 +135,7 @@ class ModelTrainer:
             )
 
             Y_test_pred=best_model.predict(X_test)
-            
+
             r2_square = r2_score(Y_test,Y_test_pred)
 
             return r2_square

@@ -8,4 +8,5 @@ xgboost
 ipykernel
 dill
 Flask
+pytest-warnings
 -e .
