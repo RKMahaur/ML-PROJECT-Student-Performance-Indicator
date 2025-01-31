@@ -35,14 +35,14 @@ def predict_datapoint():
 
         predict_pipeline = PredictPipeline()
         print("Mid Prediction")
-        
-        predicted_writing_score = predict_pipeline.predict(pred_df)[0]
+
+        predicted_writing_score = round((predict_pipeline.predict(pred_df)[0]),2)
         print("After Prediction")
         
         # Calculate the average score
-        average_score = (data.math_score + data.reading_score + predicted_writing_score) / 3
+        average_score = round((data.math_score + data.reading_score + predicted_writing_score) / 3, 2)
         
-        return render_template('home.html', results=predicted_writing_score, average_score=average_score)
+        return render_template('home.html', predicted_writing_score=predicted_writing_score, average_score=average_score)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
