@@ -4,7 +4,7 @@ from typing import List
 HYPHEN_E_DOT='-e .'
 def get_requirements(file_path:str)->List[str]:
     '''
-    this function will return the list of requirments
+    this function will return the list of strings which is present inside requirements.txt
     '''
     requirements=[]
     with open(file_path) as file_obj:
