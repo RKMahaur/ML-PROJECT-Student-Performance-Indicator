@@ -44,5 +44,5 @@ def predict_datapoint():
         return render_template('home.html', predicted_writing_score=predicted_writing_score, average_score=average_score)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0")
 
